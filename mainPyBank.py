@@ -26,16 +26,16 @@ with open(budget_tracker) as csvfile:
         total_profit.append(int(row[1])) 
 
     # Find average change
-    for i in range(len(total_profit)-1):
-        monthtomonth_change.append(total_profit[i+1]-total_profit[i])
+    for i in range(len(total_profit)):
+        monthtomonth_change.append(total_profit[i]-total_profit[i-1])
 
     # Find max and min profit values
     maxvalue_increase = max(monthtomonth_change)
     maxvalue_decrease = min(monthtomonth_change)
 
     # Find proper month for max and min values
-    maxmonth_increase = monthtomonth_change.index(max(monthtomonth_change)) + 1
-    maxmonth_decrease = monthtomonth_change.index(min(monthtomonth_change)) + 1
+    maxmonth_increase = monthtomonth_change.index(max(monthtomonth_change)) 
+    maxmonth_decrease = monthtomonth_change.index(min(monthtomonth_change)) 
 
     # Print Statements
     print("Financial Analysis")
